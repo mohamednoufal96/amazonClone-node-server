@@ -2,7 +2,7 @@
 const Products = require("../Models/Products");
 
 // export the controller functionalities
-exports.getAllProducts = (req, res) => {
+exports.getProductDetails = (req, res) => {
     Products.find()
         .then((result) => {
             res.status(200).json({
