@@ -4,7 +4,6 @@ const formidable = require("formidable");
 const https = require("https");
 const { v4: uuidv4 } = require("uuid");
 
-
 // import the paytmChecksum to authenticate the payment requests
 const PaytmChecksum = require("./PaytmChecksum");
 
@@ -23,7 +22,7 @@ exports.payment = (req, res) => {
         TXN_AMOUNT: amount.toString(),
         EMAIL: email,
         MOBILE_NO: mobileNo.toString(),
-        CALLBACK_URL: "http://localhost:5000/paymentCallback",
+        CALLBACK_URL: "https://amazon-clone-mern-nodejs.herokuapp.com/paymentCallback",
     };
 
     // use PaytmChecksum to generate a signature
