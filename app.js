@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-// require("dotenv").config();
+require("dotenv").config();
 
 //import the routes
 const routes = require("./Routes/index");
@@ -31,7 +31,7 @@ mongoose
         useUnifiedTopology: true,
     })
     .then((success) => {
-        console.log("successfully connected to mongodb");
+        console.log("successfully connected to mongodb cloud database");
         //start the server
         app.listen(port, () => {
             console.log(`server is up and running on port: ${port}`);

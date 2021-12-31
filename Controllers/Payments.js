@@ -1,5 +1,14 @@
-// export the controller functionalities
+// require all the packages needed
+require("dotenv").config();
+const formidable = require("formidable");
+const https = require("https");
+const { v4: uuidv4 } = require("uuid");
 
+
+// import the paytmChecksum to authenticate the payment requests
+const PaytmChecksum = require("./PaytmChecksum");
+
+// export the controller functionalities
 exports.payment = (req, res) => {
     const { amount, email, mobileNo } = req.body;
 
@@ -14,7 +23,7 @@ exports.payment = (req, res) => {
         TXN_AMOUNT: amount.toString(),
         EMAIL: email,
         MOBILE_NO: mobileNo.toString(),
-        CALLBACK_URL: "https://localhost:5000/paymentCallback",
+        CALLBACK_URL: "http://localhost:5000/paymentCallback",
     };
 
     // use PaytmChecksum to generate a signature
